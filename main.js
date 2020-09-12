@@ -1,4 +1,6 @@
-console.log('connect');
+'use strict';
+
+let library = [];
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -9,6 +11,14 @@ function Book(title, author, pages, read) {
         return `${title} by ${author}, ${pages} pages. Read: ${read}.`;
     }
 }
+
+function addBookToLibrary(){
+}
+
+function displayLibrary() {
+    
+}
+
 
 const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', '295', 'true');
 
