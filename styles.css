@@ -32,4 +32,11 @@
 .title {
     text-align: center;
     padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.add-book {
+    grid-row: 3 / 4;
+    grid-column: 2 / 3;
+    justify-content: center;
 }
