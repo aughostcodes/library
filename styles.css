@@ -29,18 +29,19 @@
     width: 80%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-rows: repeat(6, 1fr);
 }
 
 .modal-content > .modal-title {
     padding-bottom: 3rem;
     grid-column: 1 / -1;
+    grid-row: 1 / 2;
     text-align: center;
 }
 
 .title-label {
     grid-column: 1 / 2;
-    grid-row: 2 /3;
+    grid-row: 2 / 3;
 }
 
 .new-title-input {

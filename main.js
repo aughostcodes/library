@@ -9,34 +9,47 @@ const haveReadOne = document.querySelector('.have-read.one');
 
 const addButton = document.querySelector('.add-book');
 const modal = document.querySelector('.modal');
+const confirmNew = document.querySelector('.confirm-new-book');
 const span = document.querySelector('.close');
+
+let newTitleInput = document.querySelector('.new-title-input');
+let newAuthorInput = document.querySelector('.new-author-input');
+let newPagesInput = document.querySelector('.new-pages-input');
+let haveRead = document.querySelector('.have-read');
+
+window.addEventListener('click', function (event) {
+    if (event.target === modal) {
+        closeModal();
+    }
+})
 
 addButton.addEventListener('click', function () {
     modal.style.display = 'block';
 })
 
-span.addEventListener('click', function () {
-    modal.style.display = 'none';
-})
+span.addEventListener('click', closeModal);
 
-window.addEventListener('click', function (event) {
-    if (event.target === modal) {
-        modal.style.display = 'none';
-    }
-})
+confirmNew.addEventListener('click', addBookToLibrary);
+
+function closeModal() {
+    modal.style.display = 'none';
+}
 
 function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
+    this.title = newTitleInput.value;
+    this.author = newAuthorInput.value;
+    this.pages = newPagesInput.value;
+    this.read = haveRead.value;
     this.info = function () {
         return `${title} by ${author}, ${pages} pages. Read: ${read}.`;
     }
 }
 
 function addBookToLibrary() {
-
+    console.log(typeof(newPagesInput.value));
+    titleOne.textContent = newTitleInput.value;
+    library.push(new Book);
+    closeModal();
 }
 
 function displayLibrary() {
