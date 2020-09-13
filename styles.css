@@ -24,17 +24,45 @@
 .modal-content {
     background-color: #fefefe;
     margin: auto;
-    padding: 20px;
+    padding: 0 0 3rem 3rem;
     border: 1px solid #888;
     width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(5, 1fr);
 }
 
+.modal-content > .modal-title {
+    padding-bottom: 3rem;
+    grid-column: 1 / -1;
+    text-align: center;
+}
+
+.title-label {
+    grid-column: 1 / 2;
+    grid-row: 2 /3;
+}
+
+.new-title-input {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+.confirm-new-book {
+    grid-column: 1 / 2;
+    height: 25%;
+    width: 25%;
+    justify-self: center;
+    align-self: center;
+}
 /* The Close Button */
 .close {
     color: #aaaaaa;
-    float: right;
-    font-size: 28px;
+    font-size: 4rem;
     font-weight: bold;
+    grid-column: 2 / 3;
+    justify-self: center;
+    align-self: center;
 }
 
 .close:hover,
@@ -43,6 +71,11 @@
     text-decoration: none;
     cursor: pointer;
 }
+
+/* .radio-labels {
+    display: flex;
+    justify-content: flex-start;
+} */
 
 .wrapper {
     display: grid;

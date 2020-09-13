@@ -55,8 +55,3 @@ function displayLibrary() {
 //         haveReadOne.textContent = 'No';
 //     }
 // });
-
-/*
-const houseOfLeaves = new Book('House of Leaves', 'Mark Z. Danielewski', '709', 'true');
-console.log(houseOfLeaves.info());
-*/
