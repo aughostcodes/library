@@ -13,6 +13,7 @@ const addButton = document.querySelector('.add-book');
 const modal = document.querySelector('.modal');
 const confirmNew = document.querySelector('.confirm-new-book');
 const span = document.querySelector('.close');
+const mainDisplay = document.querySelector('.main-display');
 
 // Grabbing user input values from the modal pop-up
 let newTitleInput = document.querySelector('.new-title-input');
@@ -60,11 +61,16 @@ function addBookToLibrary() {
     console.log(typeof(newPagesInput.value));
     titleOne.textContent = newTitleInput.value;
     library.push(new Book);
+    displayBook();
     closeModal();
 }
 
-function displayLibrary() {
-
+function displayBook() {
+    for (let i = 0; i < library.length; i++) {
+        let createdBook = document.createElement('div');
+        createdBook.classList.add('bookCard');
+        cardOne.append(createdBook);
+    }
 }
 
 // addButton.addEventListener('click', function () {

@@ -89,19 +89,25 @@
     border: 2px blue solid;
     height: 75vh;
     width: 75vw;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 5rem auto 5rem;
+    display: flex;
+    /* grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 5rem auto 5rem; */
     justify-items: center;
     align-items: center;
 }
 
-.card {
+.bookCard {
     grid-row: 2 / 3;
     border: 2px red solid;
     height: 100%;
     width: 80%;
 }
+
+/* .bookCard {
+    height: 100px;
+    width: 100px;
+    background-color: green;
+} */
 
 .title {
     text-align: center;
