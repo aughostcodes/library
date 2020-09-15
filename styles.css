@@ -89,9 +89,9 @@
     border: 2px blue solid;
     height: 75vh;
     width: 75vw;
-    display: flex;
-    /* grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 5rem auto 5rem; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 5rem auto 5rem;
     justify-items: center;
     align-items: center;
 }
@@ -102,12 +102,6 @@
     height: 100%;
     width: 80%;
 }
-
-/* .bookCard {
-    height: 100px;
-    width: 100px;
-    background-color: green;
-} */
 
 .title {
     text-align: center;

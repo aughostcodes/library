@@ -49,7 +49,7 @@ function Book(title, author, pages, read) {
     this.title = newTitleInput.value;
     this.author = newAuthorInput.value;
     this.pages = newPagesInput.value;
-    this.read = haveRead.value;
+    // this.read = haveRead.value;
 }
 
 // Prototypal inheritence, so that this function isn't instantiated repeatedly for each book
@@ -59,7 +59,7 @@ Book.prototype.info = function() {
 
 function addBookToLibrary() {
     console.log(typeof(newPagesInput.value));
-    titleOne.textContent = newTitleInput.value;
+    // titleOne.textContent = newTitleInput.value;
     library.push(new Book);
     displayBook();
     closeModal();
@@ -69,7 +69,7 @@ function displayBook() {
     for (let i = 0; i < library.length; i++) {
         let createdBook = document.createElement('div');
         createdBook.classList.add('bookCard');
-        cardOne.append(createdBook);
+        mainDisplay.append(createdBook);
     }
 }
 
