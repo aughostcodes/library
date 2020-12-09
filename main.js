@@ -63,8 +63,8 @@ function addBookToLibrary() {
     closeModal();
 }
 
-function displayLibrary() {
-
+function displayBook() {
+    library.forEach()
 }
 
 // addButton.addEventListener('click', function () {
