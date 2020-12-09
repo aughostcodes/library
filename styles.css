@@ -96,7 +96,7 @@
     align-items: center;
 }
 
-.card {
+.bookCard {
     grid-row: 2 / 3;
     border: 2px red solid;
     height: 100%;

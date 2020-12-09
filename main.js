@@ -13,6 +13,7 @@ const addButton = document.querySelector('.add-book');
 const modal = document.querySelector('.modal');
 const confirmNew = document.querySelector('.confirm-new-book');
 const span = document.querySelector('.close');
+const mainDisplay = document.querySelector('.main-display');
 
 // Grabbing user input values from the modal pop-up
 let newTitleInput = document.querySelector('.new-title-input');
@@ -48,7 +49,7 @@ function Book(title, author, pages, read) {
     this.title = newTitleInput.value;
     this.author = newAuthorInput.value;
     this.pages = newPagesInput.value;
-    this.read = haveRead.value;
+    // this.read = haveRead.value;
 }
 
 // Prototypal inheritence, so that this function isn't instantiated repeatedly for each book
@@ -58,13 +59,22 @@ Book.prototype.info = function() {
 
 function addBookToLibrary() {
     console.log(typeof(newPagesInput.value));
-    titleOne.textContent = newTitleInput.value;
+    // titleOne.textContent = newTitleInput.value;
     library.push(new Book);
+    displayBook();
     closeModal();
 }
 
 function displayBook() {
+<<<<<<< HEAD
     library.forEach()
+=======
+    for (let i = 0; i < library.length; i++) {
+        let createdBook = document.createElement('div');
+        createdBook.classList.add('bookCard');
+        mainDisplay.append(createdBook);
+    }
+>>>>>>> b2019e10e6c0cc2ca3d379e78b4d059cb0e153a7
 }
 
 // addButton.addEventListener('click', function () {
