@@ -13,13 +13,15 @@ const addButton = document.querySelector('.add-book');
 const modal = document.querySelector('.modal');
 const confirmNew = document.querySelector('.confirm-new-book');
 const span = document.querySelector('.close');
-const mainDisplay = document.querySelector('.main-display');
 
 // Grabbing user input values from the modal pop-up
 let newTitleInput = document.querySelector('.new-title-input');
 let newAuthorInput = document.querySelector('.new-author-input');
 let newPagesInput = document.querySelector('.new-pages-input');
 let haveRead = document.querySelector('.have-read');
+let searchString;
+
+
 
 // Close modal when clicking anywhere outside of modal
 window.addEventListener('click', function (event) {
@@ -37,7 +39,7 @@ addButton.addEventListener('click', function () {
 span.addEventListener('click', closeModal);
 
 // Starts other calls when 'Confirm' button is clicked within modal
-confirmNew.addEventListener('click', addBookToLibrary);
+confirmNew.addEventListener('click', addGameToLibrary);
 
 // Generic close modal function
 function closeModal() {
@@ -45,47 +47,62 @@ function closeModal() {
 }
 
 // The almighty constructor
-function Book(title, author, pages, read) {
+function Game(title, platform, year, genre) {
     this.title = newTitleInput.value;
-    this.author = newAuthorInput.value;
-    this.pages = newPagesInput.value;
-    // this.read = haveRead.value;
+
+    // this.platform = newAuthorInput.value;
+    // this.year = newPagesInput.value;
+    // this.genre = haveRead.value;
 }
 
 // Prototypal inheritence, so that this function isn't instantiated repeatedly for each book
-Book.prototype.info = function() {
+Game.prototype.info = function () {
     return `${this.title} by ${this.author}, ${this.pages} pages. Read: ${this.read}.`;
 }
 
-function addBookToLibrary() {
-    console.log(typeof(newPagesInput.value));
-    // titleOne.textContent = newTitleInput.value;
-    library.push(new Book);
-    displayBook();
+
+function addGameToLibrary() {
+    if (newTitleInput.value.indexOf(' ') !== -1) {
+        console.log('s p a c e');
+    }
+    console.log(newTitleInput.value);
+    searchString = newTitleInput.value;
+    library.push(new Game);
+    accessAPI();
     closeModal();
 }
 
-function displayBook() {
-<<<<<<< HEAD
-    library.forEach()
-=======
-    for (let i = 0; i < library.length; i++) {
-        let createdBook = document.createElement('div');
-        createdBook.classList.add('bookCard');
-        mainDisplay.append(createdBook);
-    }
->>>>>>> b2019e10e6c0cc2ca3d379e78b4d059cb0e153a7
+function accessAPI() {
+    let rawg = `https://api.rawg.io/api/games?key=3cf8028468fa4d308da3f1fb814237b7&search=${searchString}`;
+    fetch(rawg, {
+            method: 'GET'
+        })
+        .then(response => response.json())
+        .then(function (data) {
+            console.log(data);
+        })
 }
 
-// addButton.addEventListener('click', function () {
-//     const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', '295', 'false');
-//     console.log(theHobbit.info());
-//     titleOne.textContent = theHobbit.title;
-//     authorOne.textContent = theHobbit.author;
-//     pagesOne.textContent = theHobbit.pages;
-//     if (theHobbit.read === 'true') {
-//         haveReadOne.textContent = 'Yes';
-//     } else {
-//         haveReadOne.textContent = 'No';
-//     }
-// });
+// just testing
+// let lib = [];
+
+// function Book() {}
+
+// Book.prototype.sayInfo = function () {
+//     console.log(this.info);
+// }
+
+// function NewBook(name, author, info) {
+//     this.name = name;
+//     this.author = author;
+//     this.info = info;
+// }
+
+// NewBook.prototype = Object.create(Book.prototype);
+
+// const wasteLand = new NewBook('The Waste Land', 'Eliot', 'Your thesis');
+
+// const hangovers = new NewBook('Hangovers', 'Bukowski', 'It takes an ungodly durability');
+
+// lib.push(wasteLand);
+// lib.push(hangovers);
